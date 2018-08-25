@@ -1,0 +1,40 @@
+{
+  "name": "starter-website-parcel",
+  "version": "1.0.0",
+  "description": "Simple website starter with Parcel.js",
+  "main": "index.js",
+  "scripts": {
+    "predev": "npm run clean && npm run copy",
+    "dev": "parcel src/index.html -p 1234 --open",
+    "prebuild": "npm run clean && npm run copy",
+    "build": "parcel build src/index.html --out-dir ./dist/assets --public-url /assets --detailed-report",
+    "postbuild": "mv dist/assets/index.html dist/index.html",
+    "clean": "shx rm -rf dist",
+    "copy": "shx cp -r static/ dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Namide/starter-website-parcel.git"
+  },
+  "keywords": [
+    "parceljs",
+    "nodejs",
+    "starter",
+    "website"
+  ],
+  "author": "Namide (Damien Doussaud)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Namide/starter-website-parcel/issues"
+  },
+  "homepage": "https://github.com/Namide/starter-website-parcel#readme",
+  "devDependencies": {
+    "dat.gui": "^0.7.2",
+    "parcel-bundler": "^1.9.7",
+    "postprocessing": "^4.9.0",
+    "shx": "^0.3.2",
+    "three": "^0.95.0",
+    "three-orbit-controls": "^82.1.0"
+  }
+}
