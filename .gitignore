@@ -1,3 +1,7 @@
+# MacOS index folder & vim swap files
+.DS_Store
+*.swp
+
 # Project build
 dist/
 

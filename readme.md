@@ -15,6 +15,9 @@ Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
 
 ``` bash
+# Just be sure that you've got parcel js on you system
+npm install -g parcel-bundler
+
 # Install dependencies (only for first time)
 npm i
 
@@ -27,3 +30,6 @@ npm run build
 
 ## Credits
 - [Namide](https://github.com/Namide) for his [Starter Website Parcel](https://github.com/Namide/starter-website-parcel)
+
+## Issues 
+If you have some issues while try to build at first time, just check that parceljs(https://parceljs.org/getting_started.html) installed on your system.
