@@ -28,12 +28,12 @@
   },
   "homepage": "https://github.com/Namide/starter-website-parcel#readme",
   "devDependencies": {
-    "dat.gui": "^0.7.2",
-    "parcel-bundler": "^1.9.7",
+    "dat.gui": "^0.7.3",
+    "parcel-bundler": "^1.10.3",
     "parcel-plugin-asset-copier": "^1.0.0",
     "postprocessing": "^4.9.0",
     "shx": "^0.3.2",
-    "three": "^0.95.0",
+    "three": "^0.98.0",
     "three-orbit-controls": "^82.1.0"
   },
   "assetsPath": "assets"
