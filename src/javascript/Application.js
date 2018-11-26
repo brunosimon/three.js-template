@@ -3,6 +3,7 @@ import ThreeOrbitControls from 'three-orbit-controls'
 import { EffectComposer, RenderPass, SMAAPass } from 'postprocessing'
 import * as dat from 'dat.gui'
 
+import TDSLoader from './Loaders/TDSLoader.js'
 import Sizes from './Sizes.js'
 import Time from './Time.js'
 
@@ -22,6 +23,7 @@ export default class Application
         // Set up
         this.time = new Time()
         this.sizes = new Sizes()
+        this.tdsLoader = new TDSLoader()
 
         // Load resources
         this.resources = {}
@@ -32,8 +34,13 @@ export default class Application
             this.resources.areaImage = new Image()
             this.resources.areaImage.addEventListener('load', () =>
             {
-                // Set environment
-                this.setEnvironment()
+                this.tdsLoader.load('suzanne.3ds', (_suzanne) =>
+                {
+                    this.resources.suzanne = _suzanne.children[0]
+
+                    // Set environment
+                    this.setEnvironment()
+                })
             })
             this.resources.areaImage.src = SMAAPass.areaImageDataURL
         })
@@ -62,9 +69,11 @@ export default class Application
         // Controls
         this.controls = new OrbitControls(this.camera, this.$canvas)
 
-        // Dummy
-        this.dummy = new THREE.Mesh(new THREE.TorusKnotBufferGeometry(1, 0.4, 120, 20), new THREE.MeshNormalMaterial())
-        this.scene.add(this.dummy)
+        // Suzanne
+        this.resources.suzanne.geometry.rotateX(- Math.PI * 0.5)
+        this.resources.suzanne.geometry.rotateY(Math.PI)
+        this.suzanne = new THREE.Mesh(this.resources.suzanne.geometry, new THREE.MeshNormalMaterial())
+        this.scene.add(this.suzanne)
 
         // Composer
         this.composer = new EffectComposer(this.renderer, { depthTexture: true })
@@ -106,7 +115,7 @@ export default class Application
         // Time tick
         this.time.on('tick', () =>
         {
-            this.dummy.rotation.y += 0.01
+            this.suzanne.rotation.y += 0.01
 
             // Renderer
             if(this.useComposer)
