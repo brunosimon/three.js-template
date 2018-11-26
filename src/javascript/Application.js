@@ -40,6 +40,9 @@ export default class Application
 
                     // Set environment
                     this.setEnvironment()
+
+                    // Set debug
+                    this.setDebug()
                 })
             })
             this.resources.areaImage.src = SMAAPass.areaImageDataURL
@@ -151,6 +154,18 @@ export default class Application
     }
 
     /**
+     * Set debug
+     */
+    setDebug()
+    {
+        this.debug = new dat.GUI()
+
+        this.debug.add(this.suzanne.scale, 'x', 0.01, 10, 0.001)
+        this.debug.add(this.suzanne.scale, 'y', 0.01, 10, 0.001)
+        this.debug.add(this.suzanne.scale, 'z', 0.01, 10, 0.001)
+    }
+
+    /**
      * Destructor
      */
     destructor()
@@ -161,5 +176,6 @@ export default class Application
         this.controls.dispose()
         this.renderer.dispose()
         this.composer.dispose()
+        this.debug.destroy()
     }
 }
