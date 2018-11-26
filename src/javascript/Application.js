@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import ThreeOrbitControls from 'three-orbit-controls'
-import { EffectComposer, RenderPass, SMAAPass } from 'postprocessing'
+import { EffectComposer, RenderPass, EffectPass, SMAAEffect } from 'postprocessing'
 import * as dat from 'dat.gui'
 
 import TDSLoader from './Loaders/TDSLoader.js'
@@ -45,9 +45,9 @@ export default class Application
                     this.setDebug()
                 })
             })
-            this.resources.areaImage.src = SMAAPass.areaImageDataURL
+            this.resources.areaImage.src = SMAAEffect.areaImageDataURL
         })
-        this.resources.searchImage.src = SMAAPass.searchImageDataURL
+        this.resources.searchImage.src = SMAAEffect.searchImageDataURL
     }
 
     /**
@@ -108,7 +108,7 @@ export default class Application
         this.composer.addPass(this.passes.render)
         this.passes.list.push(this.passes.render)
 
-        this.passes.smaa = new SMAAPass(this.resources.searchImage, this.resources.areaImage)
+        this.passes.smaa = new EffectPass(this.camera, new SMAAEffect(this.resources.searchImage, this.resources.areaImage))
         this.passes.smaa.enabled = window.devicePixelRatio <= 1
         this.composer.addPass(this.passes.smaa)
         this.passes.list.push(this.passes.smaa)
