@@ -28,8 +28,5 @@ npm run dev
 npm run build
 ```
 
-## Credits
-- [Namide](https://github.com/Namide) for his [Starter Website Parcel](https://github.com/Namide/starter-website-parcel)
-
-## Issues 
+## Issues
 If you have some issues while try to build at first time, just check that parceljs(https://parceljs.org/getting_started.html) installed on your system.
