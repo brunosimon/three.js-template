@@ -1,7 +1,7 @@
 {
-  "name": "starter-website-parcel",
+  "name": "three.js-template",
   "version": "1.0.0",
-  "description": "Simple website starter with Parcel.js",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "predev": "npm run clean",
@@ -13,20 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Namide/starter-website-parcel.git"
+    "url": "git+https://github.com/brunosimon/three.js-template.git"
   },
-  "keywords": [
-    "parceljs",
-    "nodejs",
-    "starter",
-    "website"
-  ],
-  "author": "Namide (Damien Doussaud)",
+  "author": "brunosimon",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Namide/starter-website-parcel/issues"
+    "url": "https://github.com/brunosimon/three.js-template/issues"
   },
-  "homepage": "https://github.com/Namide/starter-website-parcel#readme",
+  "homepage": "https://github.com/brunosimon/three.js-template#readme",
   "devDependencies": {
     "dat.gui": "^0.7.3",
     "parcel-bundler": "^1.10.3",
