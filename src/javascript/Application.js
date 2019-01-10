@@ -4,8 +4,8 @@ import { EffectComposer, RenderPass, EffectPass, SMAAEffect } from 'postprocessi
 import * as dat from 'dat.gui'
 
 import TDSLoader from './Loaders/TDSLoader.js'
-import Sizes from './Sizes.js'
-import Time from './Time.js'
+import Sizes from './Utils/Sizes.js'
+import Time from './Utils/Time.js'
 
 const OrbitControls = ThreeOrbitControls(THREE)
 
